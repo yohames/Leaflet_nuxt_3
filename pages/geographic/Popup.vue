@@ -1,8 +1,8 @@
 <script setup>
 const iconSize = ref([25, 41]);
 const markerLocation = ref([47.21322, -1.559482]);
-const iconUrl =
-  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23074057' stroke-linecap='round' stroke-width='2'%3E%3Cpath stroke-dasharray='56' stroke-dashoffset='56' d='M12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4Z'%3E%3Canimate fill='freeze' attributeName='stroke-dashoffset' dur='0.5s' values='56;0'/%3E%3C/path%3E%3Cpath d='M12 4v0M20 12h0M12 20v0M4 12h0' opacity='0'%3E%3Cset attributeName='opacity' begin='0.9s' to='1'/%3E%3Canimate fill='freeze' attributeName='d' begin='0.9s' dur='0.2s' values='M12 4v0M20 12h0M12 20v0M4 12h0;M12 4v-2M20 12h2M12 20v2M4 12h-2'/%3E%3CanimateTransform attributeName='transform' dur='30s' repeatCount='indefinite' type='rotate' values='0 12 12;360 12 12'/%3E%3C/path%3E%3C/g%3E%3Ccircle cx='12' cy='12' r='0' fill='%23074057' fill-opacity='0'%3E%3Cset attributeName='fill-opacity' begin='0.6s' to='1'/%3E%3Canimate fill='freeze' attributeName='r' begin='0.6s' dur='0.2s' values='0;4'/%3E%3C/circle%3E%3C/svg%3E";
+const iconUrl = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23074057' stroke-linecap='round' stroke-width='2'%3E%3Cpath stroke-dasharray='56' stroke-dashoffset='56' d='M12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4Z'%3E%3Canimate fill='freeze' attributeName='stroke-dashoffset' dur='0.5s' values='56;0'/%3E%3C/path%3E%3Cpath d='M12 4v0M20 12h0M12 20v0M4 12h0' opacity='0'%3E%3Cset attributeName='opacity' begin='0.9s' to='1'/%3E%3Canimate fill='freeze' attributeName='d' begin='0.9s' dur='0.2s' values='M12 4v0M20 12h0M12 20v0M4 12h0;M12 4v-2M20 12h2M12 20v2M4 12h-2'/%3E%3CanimateTransform attributeName='transform' dur='30s' repeatCount='indefinite' type='rotate' values='0 12 12;360 12 12'/%3E%3C/path%3E%3C/g%3E%3Ccircle cx='12' cy='12' r='0' fill='%23074057' fill-opacity='0'%3E%3Cset attributeName='fill-opacity' begin='0.6s' to='1'/%3E%3Canimate fill='freeze' attributeName='r' begin='0.6s' dur='0.2s' values='0;4'/%3E%3C/circle%3E%3C/svg%3E";
+
 </script>
 <template>
   <div class="w-[100%] h-[80vh] flex flex-col gap-y-5 mx-auto my-auto mt-10">
@@ -18,7 +18,11 @@ const iconUrl =
         layer-type="base"
         name="OpenStreetMap"
       />
-      <LMarker :lat-lng="markerLocation" draggable>
+      <LMarker
+        :lat-lng="[markerLocation[0] + i, markerLocation[1] + i]"
+        draggable
+        v-for="i in 10"
+      >
         <LIcon :icon-url="iconUrl" :icon-size="iconSize" />
         <LPopup>
           <div

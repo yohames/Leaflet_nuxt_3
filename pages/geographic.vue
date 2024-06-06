@@ -23,9 +23,9 @@
         >Draw</NuxtLink
       >
       <NuxtLink
-        to="/geographic/Draw"
+        to="/geographic/Tile"
         class="self-start text-xl text-gray-600 hover:underline underline-offset-4 dark:text-gray-200"
-        >Fly To</NuxtLink
+        >Tile</NuxtLink
       >
     </ul>
     <div class="flex-1 pl-10">
